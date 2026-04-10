@@ -54,7 +54,7 @@ class ClienteService {
             throw new InvalidArgumentException('O id do cliente deve ser maior que zero.');
         }
 
-        $clienteAtual = $this->buscarPorId($id);
+        $clienteAtual = $this->repository->buscarPorId($id);
 
         if ($clienteAtual === null) {
             throw new InvalidArgumentException('Cliente não encontrado para atualização.');
