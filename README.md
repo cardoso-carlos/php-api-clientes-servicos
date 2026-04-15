@@ -11,17 +11,23 @@ API backend para cadastro de clientes, serviços e agendamentos.
 - Relatórios simples
 
 ## Funcionalidades Implementadas
-- Cadastro de clientes
+- Cadastro de cliente
 - Listagem de clientes
 - Busca de cliente por id 
 - Atualização de cliente 
 - Remoção de cliente 
 
-- Cadastro de servicos
+- Cadastro de servico
 - Listagem de servicos
 - Busca de servico por id 
 - Atualização de servico 
 - Remoção de servico 
+
+- Cadastro de agendamento
+- Listagem de agendamentos
+- Busca de agendamento por id 
+- Atualização de agendamento 
+- Remoção de agendamento 
 
 ## Tecnologias
 - PHP 8.3
