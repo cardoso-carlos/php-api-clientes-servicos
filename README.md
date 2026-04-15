@@ -29,6 +29,12 @@ API backend para cadastro de clientes, serviços e agendamentos.
 - Atualização de agendamento 
 - Remoção de agendamento 
 
+- Cadastro de usuário
+- Listagem de usuários
+- Busca de usuário por id 
+- Atualização de usuário 
+- Remoção de usuário 
+
 ## Tecnologias
 - PHP 8.3
 - PDO
