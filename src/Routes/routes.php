@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 use App\Controllers\ClienteController;
 use App\Controllers\ServicoController;
+use App\Controllers\AgendamentoController;
 
 $clienteController = new ClienteController();
 $servicoController = new ServicoController();
+$agendamentoController = new AgendamentoController();
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
@@ -94,6 +96,51 @@ if ($uri === '/servicos' && $method === 'DELETE') {
     $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
     $response = $servicoController->destroy($id);
+
+    header('Content-Type: application/json');
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// AGENDAMENTO
+if ($uri === '/agendamentos' && $method === 'GET') {
+    if (isset($_GET['id'])) {
+        $response = $agendamentoController->show((int) $_GET['id']);
+    } else {
+        $response = $agendamentoController->index();
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($uri === '/agendamentos' && $method === 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true) ?? [];
+
+    $response = $agendamentoController->store($input);
+
+    header('Content-Type: application/json');
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+
+if ($uri === '/agendamentos' && $method === 'PUT') {
+    $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+    $input = json_decode(file_get_contents('php://input'), true) ?? [];
+
+    $response = $agendamentoController->update($id, $input);
+
+    header('Content-Type: application/json');
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($uri === '/agendamentos' && $method === 'DELETE') {
+    $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+    $response = $agendamentoController->destroy($id);
 
     header('Content-Type: application/json');
     echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

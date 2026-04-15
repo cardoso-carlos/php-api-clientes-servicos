@@ -48,7 +48,7 @@ class Agendamento {
     }
 
     public function getCriadoEm(): ?string {
-        return $this->criandoEm;
+        return $this->criadoEm;
     }
 
     public function setClienteId(int $clienteId): void {

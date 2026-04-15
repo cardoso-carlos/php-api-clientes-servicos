@@ -80,7 +80,7 @@ class ServicoService {
         $servicoAtual = $this->repository->buscarPorId($id);
 
         if ($servicoAtual === null) {
-            throw new InvalidArgumentException('Serviço não encontrado para atualização.');
+            throw new InvalidArgumentException('Serviço não encontrado para exclusão.');
         }
 
         return $this->repository->deletar($id);

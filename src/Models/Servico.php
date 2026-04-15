@@ -38,7 +38,7 @@ class Servico {
     }
 
     public function getCriadoEm(): ?string {
-        return $this->descricao;
+        return $this->criadoEm;
     }
 
     public function setNome(string $nome): void {
